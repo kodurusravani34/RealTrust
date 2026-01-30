@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind utilities;
+
+@layer utilities {
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .animate-bounce-in {
+        animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+:root{
+    --bg-1: #071029;
+    --bg-2: #071a2a;
+    --glass: rgba(255,255,255,0.06);
+    --muted: #94a3b8;
+}
+
+html,body,#root{
+    height:100%;
+}
+
+
+html { font-size: 18px; }
+
+body {
+    background: #ffffff;
+    color: #0b1220; /* dark text */
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-size: 1rem;
+}
+
+.container{max-width:1200px}
+
+/* Auto-scroll helpers for projects/testimonials */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+    /* start shifted left by half of the duplicated content, move to neutral */
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+.scroll-left { display:flex; gap:1rem; align-items:stretch; animation: scroll-left 40s linear infinite; width: max-content; }
+.scroll-right { display:flex; gap:1rem; align-items:stretch; animation: scroll-right 40s linear infinite; width: max-content; }
+
+.scroll-left .track, .scroll-right .track { display:flex; gap:1rem; }
+.scroll-left .track > *, .scroll-right .track > * { flex: 0 0 auto; }
+.scroll-left, .scroll-right { will-change: transform; }
+
+/* Make cards vertical rectangles consistent */
+.card-vertical { width: 18rem; height: 22rem; }
